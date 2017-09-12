@@ -16,8 +16,10 @@ The awesome CouchDB ORM library for Golang, aims to be developer friendly.
 - [ ] Count
 - [ ] CountBy
 - [x] Delete
+- [ ] DeleteMany
 - [ ] ExecuteQuery
 - [x] Update
+- [ ] UpdateAll
 - [ ] Exists
 - [ ] Find
 - [ ] FindAll
@@ -36,6 +38,9 @@ The awesome CouchDB ORM library for Golang, aims to be developer friendly.
 - [x] Read
 - [ ] Refresh
 - [x] Save
+- [ ] SaveAll
+- [ ] SaveJson
+- [ ] Sync
 - [ ] Validate
 - [ ] Where
 - [ ] WhereAny
