@@ -99,4 +99,4 @@ https://github.com/SerkanSipahi/corm/graphs/contributors
 
 ## License
 
-This software is released under the terms of the Apache 2.0 license. See LICENCE.md, or read the full license.
+This software is released under the terms of the Apache 2.0 license. See LICENCE.md, or read the [full license](http://www.apache.org/licenses/LICENSE-2.0).
