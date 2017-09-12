@@ -6,7 +6,7 @@ The awesome CouchDB ORM library for Golang, aims to be developer friendly.
 
 ## Overview
 
-* Our goal is to adapt/implement the Domain-Classes Methods from [grails](http://docs.grails.org/latest/ref/Domain%20Classes/save.html) in Golang for CouchDb
+* Our goal is to adapt/implement the Domain-Classes Methods from [grails](http://docs.grails.org/latest/ref/Domain%20Classes/save.html) and some of the CouchDB specific [Api](https://godoc.org/github.com/flimzy/kivik) for CouchDb
 * Be careful when using. The api can changed. We are in early state.
 * If you have some suggestions or concerns please contact us or make a issue ticket.
 
