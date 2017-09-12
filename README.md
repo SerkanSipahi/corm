@@ -99,4 +99,4 @@ https://github.com/SerkanSipahi/corm/graphs/contributors
 
 ## License
 
-Released under the [MIT License](https://github.com/SerkanSipahi/corm/blob/master/License).
+This software is released under the terms of the Apache 2.0 license. See LICENCE.md, or read the full license.
