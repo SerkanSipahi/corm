@@ -10,6 +10,16 @@ The awesome CouchDB ORM library for Golang, aims to be developer friendly.
 * Be careful when using. The api can changed. We are in early state.
 * If you have some suggestions or concerns please contact us or make a issue ticket.
 
+## Requirements
+
+* Golang >= 1.9
+
+## Installation
+
+```golang
+go get -u github.com/SerkanSipahi/corm
+```
+
 ### ORM methods (our goal for a Nosql-Database)
 
 #### db methods
@@ -53,10 +63,6 @@ db, err := corm.New(ctx, corm.Config{
 - [ ] Validate
 - [ ] Where
 - [ ] WhereAny
-
-## Getting Started
-
-* coming soon
 
 ### Basic usage
 ```golang
