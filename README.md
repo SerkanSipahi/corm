@@ -16,7 +16,7 @@ The awesome CouchDB ORM library for Golang, aims to be developer friendly.
 
 ```golang
 ctx := context.Background()
-db, err := corm.New(ctx, Config{
+db, err := corm.New(ctx, corm.Config{
     DBName: "myDatabase",
 })
 ```
