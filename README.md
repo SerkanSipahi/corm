@@ -74,7 +74,7 @@ type Product struct {
 
 // init DB
 ctx := context.Background()
-db, err := corm.New(ctx, Config{
+db, err := corm.New(ctx, corm.Config{
     DBName: "myDatabase",
 })
 
