@@ -18,9 +18,6 @@ func NewOrm(db *DB) *Orm {
 
 func (c *Orm) Save(ctx context.Context, doc interface{}) (newId string, rev string, err error) {
 
-	// 1.) prüfen ob id string oder number
-	// 2.) nur string oder number ist erlaubt
-
 	structDoc := structs.New(doc)
 	id := structDoc.Field("Id").Value().(string)
 
@@ -39,22 +36,6 @@ func (c *Orm) Save(ctx context.Context, doc interface{}) (newId string, rev stri
 	// create doc with auto-generated id
 	docId, rev, err := c.Db.CreateDoc(ctx, doc)
 	return docId, rev, err
-}
-
-func (c *Orm) SaveJson(ctx context.Context, doc interface{}) {
-
-}
-
-func (c *Orm) SaveMany(ctx []context.Context, doc []interface{}) {
-
-}
-
-func (c *Orm) SaveAll(ctx []context.Context, doc []interface{}) {
-
-}
-
-func (c *Orm) SaveAssociated(ctx []context.Context, doc []interface{}) {
-
 }
 
 func (c *Orm) Read(ctx context.Context, id string, doc interface{}, options ...Options) (row *Row, err error) {
@@ -89,29 +70,4 @@ func (c *Orm) Delete(ctx context.Context, id, rev string) (newRev string, err er
 		return "", errDocIdAndRevRequired
 	}
 	return c.Db.Delete(ctx, id, rev)
-}
-
-func (c *Orm) DeleteMany(ctx context.Context, id, rev string) {
-
-}
-
-func (c *Orm) FindBy(ctx context.Context, doc interface{}, key string, value interface{}) {
-
-}
-
-func (c *Orm) FindAll(ctx context.Context, docs interface{}, options ...map[string]interface{}) {
-	fmt.Println("find-all", docs)
-}
-
-func (c *Orm) First(ctx context.Context, doc interface{}, options ...map[string]interface{}) {
-
-}
-
-func (c *Orm) Last(ctx context.Context, doc interface{}, options ...map[string]interface{}) {
-
-}
-
-// alle felder upgedated die nicht existieren
-func (c *Orm) Sync(ctx context.Context, doc interface{}, options ...map[string]interface{}) {
-
 }
