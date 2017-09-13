@@ -12,6 +12,15 @@ The awesome CouchDB ORM library for Golang, aims to be developer friendly.
 
 ### ORM methods (our goal for a Nosql-Database)
 
+#### db methods
+
+```golang
+ctx := context.Background()
+db, err := corm.New(ctx, Config{
+    DBName: "myDatabase",
+})
+```
+
 - [ ] BelongsTo
 - [ ] Count
 - [ ] CountBy
@@ -44,6 +53,30 @@ The awesome CouchDB ORM library for Golang, aims to be developer friendly.
 - [ ] Validate
 - [ ] Where
 - [ ] WhereAny
+
+#### client methods
+
+```golang
+ctx := context.Background()
+client, err := NewClient(ctx, ClientConfig{
+    Host:       "http://localhost:5984/",
+    DriverName: "couch"
+})
+```
+
+- [ ] AllDBs
+- [ ] Authenticate
+- [ ] CreateDB
+- [ ] DB
+- [ ] DBExists
+- [ ] DBUpdates
+- [ ] DSN
+- [ ] DestroyDB
+- [ ] Driver
+- [ ] GetReplications
+- [ ] Replicate
+- [ ] Session
+- [ ] Version
 
 ## Getting Started
 
