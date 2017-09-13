@@ -61,6 +61,17 @@ db, err := corm.New(ctx, Config{
 ### Basic usage
 ```golang
 
+type Product struct {
+	Id          string `json:"_id,omitempty"`
+	Rev         string `json:"_rev,omitempty"`
+	VendorId    int    `json:"vendorId"`
+	VendorType  string `json:"vendorType"`
+	Name        string `json:"name"`
+	Description string `json:"description"`
+	CategoryId  string `json:"categoryId"`
+	UrlId       string `json:"urlId"`
+}
+
 // init DB
 ctx := context.Background()
 db, err := corm.New(ctx, Config{
