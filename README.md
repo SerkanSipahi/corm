@@ -54,30 +54,6 @@ db, err := corm.New(ctx, Config{
 - [ ] Where
 - [ ] WhereAny
 
-#### client methods
-
-```golang
-ctx := context.Background()
-client, err := NewClient(ctx, ClientConfig{
-    Host:       "http://localhost:5984/",
-    DriverName: "couch"
-})
-```
-
-- [ ] AllDBs
-- [ ] Authenticate
-- [ ] CreateDB
-- [ ] DB
-- [ ] DBExists
-- [ ] DBUpdates
-- [ ] DSN
-- [ ] DestroyDB
-- [ ] Driver
-- [ ] GetReplications
-- [ ] Replicate
-- [ ] Session
-- [ ] Version
-
 ## Getting Started
 
 * coming soon
