@@ -28,7 +28,7 @@ var defaultHostName = "http://localhost:5984/"
 // and DriverName can be passed with Config struct.
 //
 // 	ctx := context.TODO()
-// 	db, err := New(ctx, Config{
+// 	db, err := corm.New(ctx, Config{
 // 		DBName: "honeyglass",
 // 	})
 func New(ctx context.Context, config Config) (*Orm, error) {
