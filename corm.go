@@ -13,11 +13,11 @@ type Orm struct {
 	Cache *map[string]interface{}
 }
 
-// OrmOptions contains key value pair as option
+// OrmOptions contains key value pair as option.
 // Note: not relevant for you. It will be used internally
 type OrmOptions map[string]interface{}
 
-// NewOrm creates a new Orm instance by passed db instance
+// NewOrm creates a new Orm instance by passed db instance.
 // Note: not relevant for you. It will be used inside of corm.New(...)
 func NewOrm(db *DB) *Orm {
 	// returns Orm instance
