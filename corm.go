@@ -7,6 +7,7 @@ import (
 )
 
 // NewOrm creates a new Orm instance by passed db instance.
+//
 // Note: not relevant for you. It will be used inside of corm.New(...)
 func NewOrm(db *DB) *Orm {
 	// returns Orm instance
@@ -16,10 +17,12 @@ func NewOrm(db *DB) *Orm {
 }
 
 // OrmOptions contains key value pair as option.
+//
 // Note: not relevant for you. It will be used internally
 type OrmOptions map[string]interface{}
 
 // Orm contains the Db and Cache state.
+//
 // Note: not relevant for you. It will be used inside of corm.NewOrm(...)
 type Orm struct {
 	Db    *DB
