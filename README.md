@@ -12,6 +12,7 @@ The awesome CouchDB ORM library for Golang, aims to be developer friendly.
 
 ## Requirements
 
+* GouchDB >= 2.1
 * Golang >= 1.9
 
 ## Installation
@@ -25,7 +26,7 @@ go get -u github.com/SerkanSipahi/corm
 #### db methods
 
 ```golang
-ctx := context.Background()
+ctx := context.TODO()
 db, err := corm.New(ctx, corm.Config{
     DBName: "myDatabase",
 })
@@ -79,7 +80,7 @@ type Product struct {
 }
 
 // init DB
-ctx := context.Background()
+ctx := context.TODO()
 db, err := corm.New(ctx, corm.Config{
     DBName: "myDatabase",
 })

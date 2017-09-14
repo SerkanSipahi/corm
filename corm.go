@@ -6,11 +6,17 @@ import (
 	"github.com/fatih/structs"
 )
 
+// please write tests
+// use as example for documentation https://github.com/go-redis/redis
+
 type Orm struct {
-	Db *DB
+	Db    *DB
+	Cache *map[string]interface{}
 }
 
-func NewOrm(db *DB) *Orm {
+type OrmOptions map[string]interface{}
+
+func NewOrm(db *DB, options ...Options) *Orm {
 	return &Orm{
 		Db: db,
 	}

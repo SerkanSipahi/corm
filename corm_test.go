@@ -20,7 +20,7 @@ type Product struct {
 
 func TestCorn_Foo(t *testing.T) {
 
-	ctx := context.Background()
+	ctx := context.TODO()
 
 	db, err := New(ctx, Config{
 		DBName: "honeyglass",
@@ -58,8 +58,8 @@ func TestCorn_Foo(t *testing.T) {
 	}
 
 	// read doc with optional options
-	var product Product
 	options := map[string]interface{}{"a": "b"}
+	var product Product
 	_, err = db.Read(ctx, docId, &product, options)
 
 	// delete doc
