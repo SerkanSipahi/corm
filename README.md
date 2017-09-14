@@ -3,6 +3,7 @@
 The awesome CouchDB ORM library for Golang, aims to be developer friendly.
 
 [![GoDoc](https://godoc.org/github.com/SerkanSipahi/corm?status.svg)](https://godoc.org/github.com/SerkanSipahi/corm)
+[![Go Report Card](https://goreportcard.com/badge/github.com/SerkanSipahi/corm)](https://goreportcard.com/report/github.com/SerkanSipahi/corm)
 
 ## Overview
 
