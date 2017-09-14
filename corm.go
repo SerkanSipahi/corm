@@ -44,12 +44,14 @@ func (c *Orm) Read(ctx context.Context, id string, doc interface{}, options ...O
 		return &Row{}, errDocIdRequired
 	}
 	row, err = c.Db.Get(ctx, id, options...)
+	// convert row the passed struct type
 	row.ScanDoc(&doc)
 	return row, err
 }
 
 func (c *Orm) Update(ctx context.Context, doc interface{}) (newRev string, err error) {
 
+	// extract id and rev from empty interface
 	structDoc := structs.New(doc)
 	id := structDoc.Field("Id").Value().(string)
 	rev := structDoc.Field("Rev").Value().(string)
@@ -58,10 +60,6 @@ func (c *Orm) Update(ctx context.Context, doc interface{}) (newRev string, err e
 		return "", errDocIdAndRevRequired
 	}
 	return c.Db.Put(ctx, id, doc)
-}
-
-func (c *Orm) UpdateAll(ctx context.Context, id, rev string) {
-
 }
 
 func (c *Orm) Delete(ctx context.Context, id, rev string) (newRev string, err error) {
