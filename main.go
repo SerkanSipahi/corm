@@ -28,7 +28,6 @@ var defaultHostName = "http://localhost:5984/"
 // and DriverName can be passed with Config struct.
 //
 // 	ctx := context.TODO()
-//
 // 	db, err := New(ctx, Config{
 // 		DBName: "honeyglass",
 // 	})
