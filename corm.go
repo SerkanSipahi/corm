@@ -25,7 +25,7 @@ func NewOrm(db *DB) *Orm {
 
 // Save save new doc (struct) in the database. When it saved correctly
 // it will return an id and revision. On fail it will return an error.
-// When doc contain the Id property, the database will interpret as
+// When doc contain the Id property, the database will interpret it as
 // predefined unquie Id and when its omitted it will generate it automatically.
 func (c *Orm) Save(ctx context.Context, doc interface{}) (newId string, rev string, err error) {
 
@@ -82,7 +82,7 @@ func (c *Orm) Update(ctx context.Context, doc interface{}) (newRev string, err e
 
 // Delete deletes the document by passed id and revision (rev).
 // When id and revision (rev) are empty it will return an error.
-// When everything works fine will return the new deleted revision (newRev).
+// When everything works fine it will return the new deleted revision (newRev).
 func (c *Orm) Delete(ctx context.Context, id, rev string) (newRev string, err error) {
 
 	if id == "" && rev == "" {
