@@ -58,7 +58,7 @@ db, err := corm.New(ctx, corm.Config{
 - [ ] ListOrderBy
 - [x] Read
 - [ ] Refresh
-- [x] Save
+- [x] [Save](https://godoc.org/github.com/SerkanSipahi/corm#Orm.Save)
 - [ ] SaveAll
 - [ ] SaveJson
 - [ ] Sync
