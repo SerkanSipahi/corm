@@ -42,7 +42,6 @@ db, err := corm.New(ctx, corm.Config{
 - [ ] Count
 - [ ] CountBy
 - [ ] Exists
-
 - [ ] BelongsTo
 - [ ] DeleteMany
 - [ ] ExecuteQuery
