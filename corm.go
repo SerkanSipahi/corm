@@ -28,6 +28,36 @@ type Orm struct {
 // it will return an id and revision. On fail it will return an error.
 // When doc contain the Id property, the database will interpret it as
 // predefined unique Id and when its omitted it will generate it automatically.
+//
+//	// create document with auto generated id
+// 	ctx := context.TODO()
+// 	db, err := corm.New(ctx, Config{
+//		// as you can see "Id" is not defined
+// 		DBName: "mydbname",
+// 	})
+//
+//	if err != nil {
+//		log.Fatal(err)
+//	}
+//
+// 	docId, rev, err := db.Save(ctx, Product{
+//		Name: "Foo",
+// 	})
+//
+//	if err != nil {
+// 		log.Fatal(err)
+// 	}
+//
+// 	// create document with predefined id
+// 	docId, rev, err := db.Save(ctx, Product{
+//		Id: "123456",
+//		Name: "Foo",
+// 	})
+//
+//	if err != nil {
+// 		log.Fatal(err)
+// 	}
+//
 func (c *Orm) Save(ctx context.Context, doc interface{}) (newId string, rev string, err error) {
 
 	structDoc := structs.New(doc)
