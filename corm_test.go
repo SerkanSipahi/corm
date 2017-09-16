@@ -9,8 +9,10 @@ import (
 )
 
 type Product struct {
+	// required fields (Id, Rev, Type)
 	Id          string `json:"_id,omitempty"`
 	Rev         string `json:"_rev,omitempty"`
+	Type        string `json:"type"`
 	VendorId    int    `json:"vendorId"`
 	VendorType  string `json:"vendorType"`
 	Name        string `json:"name"`

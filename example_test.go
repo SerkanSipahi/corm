@@ -14,6 +14,7 @@ func ExampleNewOrm_orm() {
 	// type Product struct {
 	// 	Id          string `json:"_id,omitempty"`  // required in this style
 	// 	Rev         string `json:"_rev,omitempty"` // required in this style
+	// 	Type        string `json:"type"`           // required in this style
 	// 	Name        string `json:"vendorId"`
 	// }
 
@@ -88,6 +89,7 @@ func ExampleOrm_Save_save1() {
 	// type Product struct {
 	// 	Id          string `json:"_id,omitempty"`  // required in this style
 	// 	Rev         string `json:"_rev,omitempty"` // required in this style
+	// 	Type        string `json:"type"`           // required: tag this but don´t touch it
 	// 	Name        string `json:"vendorId"`
 	// }
 
@@ -120,7 +122,8 @@ func ExampleOrm_Save_save2() {
 	// type Product struct {
 	// 	Id          string `json:"_id,omitempty"`  // required in this style
 	// 	Rev         string `json:"_rev,omitempty"` // required in this style
-	// 	Name        string `json:"vendorId"`
+	// 	Type        string `json:"type"`           // required: tag this but don´t touch it
+	// 	Name        string `json:"name"`
 	// }
 
 	// create orm
@@ -149,7 +152,8 @@ func ExampleOrm_Update() {
 	// type Product struct {
 	// 	Id          string `json:"_id,omitempty"`  // required in this style
 	// 	Rev         string `json:"_rev,omitempty"` // required in this style
-	// 	Name        string `json:"vendorId"`
+	// 	Type        string `json:"type"`           // required: tag this but don´t touch it
+	// 	Name        string `json:"name"`
 	// }
 
 	// create orm
@@ -184,7 +188,8 @@ func ExampleOrm_Read() {
 	// type Product struct {
 	// 	Id          string `json:"_id,omitempty"`  // required in this style
 	// 	Rev         string `json:"_rev,omitempty"` // required in this style
-	// 	Name        string `json:"vendorId"`
+	// 	Type        string `json:"type"`           // required: tag this but don´t touch it
+	// 	Name        string `json:"name"`
 	// }
 
 	// create orm

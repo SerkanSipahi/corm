@@ -32,6 +32,11 @@ func (c *Orm) Save(ctx context.Context, doc interface{}) (newId string, rev stri
 
 	structDoc := structs.New(doc)
 	id := structDoc.Field("Id").Value().(string)
+	Type := structDoc.Field("Type").Value().(string)
+
+	// 1.) Das Feld muss so in der Form existieren
+	// 1.) Darf kein Inhalt haben weil es intern genutzt wird
+	fmt.Fprintln(Type)
 
 	// when docId already exists
 	_, err = c.Db.Get(ctx, id)
@@ -74,6 +79,11 @@ func (c *Orm) Update(ctx context.Context, doc interface{}) (newRev string, err e
 	structDoc := structs.New(doc)
 	id := structDoc.Field("Id").Value().(string)
 	rev := structDoc.Field("Rev").Value().(string)
+	Type := structDoc.Field("Type").Value().(string)
+
+	// 1.) Das Feld muss so in der Form existieren
+	// 1.) Darf kein Inhalt haben weil es intern genutzt wird
+	fmt.Fprintln(Type)
 
 	if id == "" && rev == "" {
 		return "", errDocIdAndRevRequired

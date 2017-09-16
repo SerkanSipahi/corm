@@ -37,25 +37,26 @@ db, err := corm.New(ctx, corm.Config{
 - [x] [Read](https://godoc.org/github.com/SerkanSipahi/corm#Orm.Read)
 - [x] [Update](https://godoc.org/github.com/SerkanSipahi/corm#Orm.Update)
 - [x] [Delete](https://godoc.org/github.com/SerkanSipahi/corm#Orm.Delete)
-- [ ] BelongsTo
+- [ ] First
+- [ ] Last
 - [ ] Count
 - [ ] CountBy
+- [ ] Exists
+
+- [ ] BelongsTo
 - [ ] DeleteMany
 - [ ] ExecuteQuery
 - [ ] UpdateAll
-- [ ] Exists
 - [ ] Find
 - [ ] FindAll
 - [ ] FindAllBy
 - [ ] FindAllWhere
 - [ ] FindBy
 - [ ] FindWhere
-- [ ] First
 - [ ] Get
 - [ ] GetAll
 - [ ] HasMany
 - [ ] HasOne
-- [ ] Last
 - [ ] List
 - [ ] ListOrderBy
 - [ ] Refresh
@@ -70,14 +71,11 @@ db, err := corm.New(ctx, corm.Config{
 ```golang
 
 type Product struct {
-	Id          string `json:"_id,omitempty"`
-	Rev         string `json:"_rev,omitempty"`
-	VendorId    int    `json:"vendorId"`
-	VendorType  string `json:"vendorType"`
+	Id          string `json:"_id,omitempty"`  // required in this style
+	Rev         string `json:"_rev,omitempty"` // required in this style
+	Type        string `json:"type"`           // required: tag this but don´t touch it
+	// additionals
 	Name        string `json:"name"`
-	Description string `json:"description"`
-	CategoryId  string `json:"categoryId"`
-	UrlId       string `json:"urlId"`
 }
 
 // init DB
