@@ -79,3 +79,38 @@ func ExampleNewClient_client() {
 	fmt.Println(err) // nil when success and not nil when it fails
 
 }
+
+func ExampleOrm_Save_save() {
+
+	// create document with auto generated id
+	ctx := context.TODO()
+	db, err := corm.New(ctx, corm.Config{
+		// as you can see "Id" is not defined
+		DBName: "mydbname",
+	})
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	docId, rev, err := db.Save(ctx, Product{
+		Name: "Foo",
+	})
+
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(docId, rev) // 232434234234234, 1-s323sf34243
+
+	// create document with predefined id
+	docId, rev, err = db.Save(ctx, Product{
+		Id:   "123456",
+		Name: "Foo",
+	})
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(docId, rev) // 123456, 1-asdfw34sdf3
+}
