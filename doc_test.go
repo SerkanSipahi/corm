@@ -9,7 +9,7 @@ import (
 
 // You dont need this step when using corm. But if want to know how to init an custom
 // orm, please follow the example step by step.
-func ExampleNewOrm_orm() {
+func ExampleNewOrm_orm_create_orm_instance() {
 
 	// build config
 	config := corm.Config{
@@ -18,8 +18,7 @@ func ExampleNewOrm_orm() {
 	}
 
 	// create client instance
-	ctx := context.TODO()
-	client, err := corm.NewClient(ctx, corm.ClientConfig{
+	client, err := corm.NewClient(context.TODO(), corm.ClientConfig{
 		Host:       config.Host,
 		DriverName: config.DriverName,
 	})
@@ -28,7 +27,7 @@ func ExampleNewOrm_orm() {
 	}
 
 	// create db
-	db, err := client.DB(ctx, config.DBName)
+	db, err := client.DB(context.TODO(), config.DBName)
 	// create orm model
 	model := corm.NewOrm(db)
 	if err != nil {
@@ -54,11 +53,10 @@ func ExampleNewOrm_orm() {
 // NewClient creates a new client instance that is very useful when you want to use the
 // client api of kivik.Client see https://godoc.org/github.com/flimzy/kivik#Client .
 // Here is an example for Authentication an user
-func ExampleNewClient_client() {
+func ExampleNewClient_create_client_instance() {
 
 	// create client instance
-	ctx := context.TODO()
-	client, err := corm.NewClient(ctx, corm.ClientConfig{
+	client, err := corm.NewClient(context.TODO(), corm.ClientConfig{
 		Host:       "http://localhost:5984/",
 		DriverName: "couch",
 	})
@@ -80,12 +78,9 @@ func ExampleNewClient_client() {
 
 }
 
-func ExampleOrm_Save_save() {
+func ExampleOrm_Save_with_auto_id() {
 
-	// create document with auto generated id
-	ctx := context.TODO()
-	db, err := corm.New(ctx, corm.Config{
-		// as you can see "Id" is not defined
+	db, err := corm.New(context.TODO(), corm.Config{
 		DBName: "mydbname",
 	})
 
@@ -93,17 +88,25 @@ func ExampleOrm_Save_save() {
 		log.Fatal(err)
 	}
 
-	docId, rev, err := db.Save(ctx, Product{
+	docId, rev, err := db.Save(context.TODO(), Product{
 		Name: "Foo",
 	})
 
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(docId, rev) // 232434234234234, 1-s323sf34243
+	fmt.Println(docId, rev, nil)
+	// Output: 889c9653a6b490cc24c85d78b10076c7, 1-68a533f5dc76a65b56b7329b9d4086ab, nil
+}
+
+func ExampleOrm_Save_with_predefined_id() {
+
+	db, err := corm.New(context.TODO(), corm.Config{
+		DBName: "mydbname",
+	})
 
 	// create document with predefined id
-	docId, rev, err = db.Save(ctx, Product{
+	docId, rev, err := db.Save(context.TODO(), Product{
 		Id:   "123456",
 		Name: "Foo",
 	})
@@ -112,5 +115,6 @@ func ExampleOrm_Save_save() {
 		log.Fatal(err)
 	}
 
-	fmt.Println(docId, rev) // 123456, 1-asdfw34sdf3
+	fmt.Println(docId, rev)
+	// Output: 123456, 1-68a533f5dc76a65b56b7329b9d4086ab, nil
 }
