@@ -41,8 +41,8 @@ func ExampleNewOrm_orm() {
 		Surename: "Sipahi",
 	})
 
-	// Output: 889c9653a6b490cc24c85d78b10076c7, 1-68a533f5dc76a65b56b7329b9d4086ab, nil
 	fmt.Println(id, rev, err)
+	// Output: 889c9653a6b490cc24c85d78b10076c7, 1-68a533f5dc76a65b56b7329b9d4086ab, nil
 }
 
 // Here is an example for Authentication an user
@@ -76,7 +76,7 @@ func ExampleNewClient() {
 
 }
 
-// save a document with "auto generated" id by couchDB
+// Save a document with "auto generated" id by couchDB
 func ExampleOrm_Save_save1() {
 
 	// create orm
@@ -102,7 +102,7 @@ func ExampleOrm_Save_save1() {
 	// Output: 889c9653a6b490cc24c85d78b10076c7, 1-68a533f5dc76a65b56b7329b9d4086ab, nil
 }
 
-// save a document with "predefined" id
+// Save a document with "predefined" id
 func ExampleOrm_Save_save2() {
 
 	// create orm
@@ -125,7 +125,7 @@ func ExampleOrm_Save_save2() {
 	// Output: 123456, 1-68a533f5dc76a65b56b7329b9d4086ab, nil
 }
 
-// update an document by given Id and Rev
+// Update an document by given Id and Rev
 func ExampleOrm_Update() {
 
 	// create orm
