@@ -47,7 +47,8 @@ func ExampleNewOrm_orm() {
 		Surename: "Sipahi",
 	})
 
-	fmt.Println(id, rev, err) // log 2233434323, 1-33434565, nil
+	fmt.Println(id, rev, err)
+	// Output: 889c9653a6b490cc24c85d78b10076c7, 1-68a533f5dc76a65b56b7329b9d4086ab, nil
 }
 
 // NewClient creates a new client instance that is very useful when you want to use the
