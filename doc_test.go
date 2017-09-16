@@ -41,8 +41,8 @@ func ExampleNewOrm_orm() {
 		Surename: "Sipahi",
 	})
 
-	fmt.Println(id, rev, err)
 	// Output: 889c9653a6b490cc24c85d78b10076c7, 1-68a533f5dc76a65b56b7329b9d4086ab, nil
+	fmt.Println(id, rev, err)
 }
 
 // Here is an example for Authentication an user
