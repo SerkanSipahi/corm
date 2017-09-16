@@ -5,6 +5,7 @@ import (
 	"github.com/flimzy/kivik"
 )
 
+// Config can be passed in corm.New(...)
 type Config struct {
 	// default "couch"
 	Host string
@@ -48,6 +49,9 @@ func New(ctx context.Context, config Config) (*Orm, error) {
 	return NewOrm(db), err
 }
 
+// NewClient returns a client instance that can be used
+// for e.g. CouchDb´ s build in authentication. Here are the full method list
+// of the client instance: https://godoc.org/github.com/flimzy/kivik#Client
 func NewClient(ctx context.Context, config ClientConfig) (*Client, error) {
 
 	client, err := kivik.New(ctx, config.DriverName, config.Host)
@@ -58,6 +62,8 @@ func NewClient(ctx context.Context, config ClientConfig) (*Client, error) {
 	return client, err
 }
 
+// InitDefaults sets the default values when
+// Conifg struct does not contain the "Host" and "DriverName" member
 func initDefaults(config *Config) {
 
 	if config.Host == "" {

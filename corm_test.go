@@ -1,8 +1,9 @@
-package corm
+package corm_test
 
 import (
 	"context"
 	"fmt"
+	"github.com/serkansipahi/corm"
 	"log"
 	"testing"
 )
@@ -22,7 +23,7 @@ func TestCorn_Foo(t *testing.T) {
 
 	ctx := context.TODO()
 
-	db, err := New(ctx, Config{
+	db, err := corm.New(ctx, corm.Config{
 		DBName: "honeyglass",
 	})
 

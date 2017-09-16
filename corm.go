@@ -7,8 +7,8 @@ import (
 )
 
 // NewOrm creates a new Orm instance by passed db instance.
-//
-// Note: not relevant for you. It will be used inside of corm.New(...)
+// Note: not relevant for you! It will be used inside of corm.New(...) but if you
+// really want to create your own orm, please see [Example].
 func NewOrm(db *DB) *Orm {
 	// returns Orm instance
 	return &Orm{
@@ -16,23 +16,18 @@ func NewOrm(db *DB) *Orm {
 	}
 }
 
-// OrmOptions contains key value pair as option.
-//
-// Note: not relevant for you. It will be used internally
+// OrmOptions contains options as key value pair.
 type OrmOptions map[string]interface{}
 
-// Orm contains the Db and Cache state.
-//
-// Note: not relevant for you. It will be used inside of corm.NewOrm(...)
+// Orm contains the Db instance that be used inside of corm.NewOrm(...)
 type Orm struct {
-	Db    *DB
-	Cache *map[string]interface{}
+	Db *DB
 }
 
-// Save save new doc (struct) in the database. When it saved correctly
+// Save saves new doc (struct) in the database. When it saved correctly
 // it will return an id and revision. On fail it will return an error.
 // When doc contain the Id property, the database will interpret it as
-// predefined unquie Id and when its omitted it will generate it automatically.
+// predefined unique Id and when its omitted it will generate it automatically.
 func (c *Orm) Save(ctx context.Context, doc interface{}) (newId string, rev string, err error) {
 
 	structDoc := structs.New(doc)
@@ -55,7 +50,7 @@ func (c *Orm) Save(ctx context.Context, doc interface{}) (newId string, rev stri
 	return docId, rev, err
 }
 
-// Read read document from database by passed id and doc struct.
+// Read reads document from database by passed id and doc struct.
 // When it fails it will return an empty Row and error and when
 // everything works fine, it will unmarshal the result (row) to
 // passed doc struct.
@@ -70,7 +65,7 @@ func (c *Orm) Read(ctx context.Context, id string, doc interface{}, options ...O
 	return row, err
 }
 
-// Update update doc (struct) as document in the database. The doc must
+// Update updates doc (struct) as document in the database. The doc must
 // contains the doc Id and Rev property. When its saved correctly it will return a
 // new revision. Otherwise it will return an error.
 func (c *Orm) Update(ctx context.Context, doc interface{}) (newRev string, err error) {
