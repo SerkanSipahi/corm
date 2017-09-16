@@ -7,8 +7,9 @@ import (
 	"log"
 )
 
-// How to init an custom orm explained step by step
-func ExampleNewOrm() {
+// You dont need this step when using corm. But if want to know how to init an custom
+// orm, please follow the example step by step.
+func ExampleNewOrm_orm() {
 
 	// build config
 	config := corm.Config{
@@ -50,6 +51,31 @@ func ExampleNewOrm() {
 	fmt.Println(id, rev, err) // log 2233434323, 1-33434565, nil
 }
 
-func ExampleMethodenName_inklammer2() {
-	fmt.Println("Hello")
+// NewClient creates a new client instance that is very useful when you want to use the
+// client api of kivik.Client see https://godoc.org/github.com/flimzy/kivik#Client .
+// Here is an example for Authentication an user
+func ExampleNewClient_client() {
+
+	// create client instance
+	ctx := context.TODO()
+	client, err := corm.NewClient(ctx, corm.ClientConfig{
+		Host:       "http://localhost:5984/",
+		DriverName: "couch",
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	type Credentials struct {
+		Name     string `json:"name"`
+		Password string `json:"password"`
+	}
+
+	err = client.Authenticate(context.TODO(), Credentials{
+		Name:     "myname",
+		Password: "somepassword",
+	})
+
+	fmt.Println(err) // nil when success and not nil when it fails
+
 }
