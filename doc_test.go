@@ -11,23 +11,17 @@ import (
 // orm, please follow the example step by step.
 func ExampleNewOrm_orm() {
 
-	// build config
-	config := corm.Config{
+	// create client
+	client, err := corm.NewClient(context.TODO(), corm.ClientConfig{
 		Host:       "http://localhost:5984/",
 		DriverName: "couch",
-	}
-
-	// create client instance
-	client, err := corm.NewClient(context.TODO(), corm.ClientConfig{
-		Host:       config.Host,
-		DriverName: config.DriverName,
 	})
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	// create db
-	db, err := client.DB(context.TODO(), config.DBName)
+	db, err := client.DB(context.TODO(), "mydbname")
 	// create orm
 	orm := corm.NewOrm(db)
 	if err != nil {
