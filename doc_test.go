@@ -54,7 +54,7 @@ func ExampleNewOrm_orm() {
 // NewClient creates a new client instance that is very useful when you want to use the
 // client api of kivik.Client see https://godoc.org/github.com/flimzy/kivik#Client .
 // Here is an example for Authentication an user
-func ExampleNewClient_client() {
+func ExampleNewClient() {
 
 	// create client instance
 	client, err := corm.NewClient(context.TODO(), corm.ClientConfig{
@@ -75,11 +75,12 @@ func ExampleNewClient_client() {
 		Password: "somepassword",
 	})
 
-	fmt.Println(err) // nil when success and not nil when it fails
+	fmt.Println(err)
+	// Output: nil
 
 }
 
-func ExampleOrm_SaveWithAutoId() {
+func ExampleOrm_Save() {
 
 	db, err := corm.New(context.TODO(), corm.Config{
 		DBName: "mydbname",
@@ -100,7 +101,7 @@ func ExampleOrm_SaveWithAutoId() {
 	// Output: 889c9653a6b490cc24c85d78b10076c7, 1-68a533f5dc76a65b56b7329b9d4086ab, nil
 }
 
-func ExampleOrm_Save_with_predefined_id() {
+func ExampleOrm_Save2() {
 
 	db, err := corm.New(context.TODO(), corm.Config{
 		DBName: "mydbname",
