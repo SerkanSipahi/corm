@@ -80,7 +80,8 @@ func ExampleNewClient() {
 
 }
 
-func ExampleOrm_Save_saveWithAutoId() {
+// save a document with "auto generated" id by couchDB
+func ExampleOrm_Save_save1() {
 
 	db, err := corm.New(context.TODO(), corm.Config{
 		DBName: "mydbname",
@@ -101,6 +102,7 @@ func ExampleOrm_Save_saveWithAutoId() {
 	// Output: 889c9653a6b490cc24c85d78b10076c7, 1-68a533f5dc76a65b56b7329b9d4086ab, nil
 }
 
+// save a document with "predefined" id by couchDB
 func ExampleOrm_Save_save2() {
 
 	db, err := corm.New(context.TODO(), corm.Config{
