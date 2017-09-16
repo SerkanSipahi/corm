@@ -36,7 +36,7 @@ db, err := corm.New(ctx, corm.Config{
 - [x] [Save](https://godoc.org/github.com/SerkanSipahi/corm#Orm.Save)
 - [x] [Read](https://godoc.org/github.com/SerkanSipahi/corm#Orm.Read)
 - [x] [Update](https://godoc.org/github.com/SerkanSipahi/corm#Orm.Update)
-- [x] [Update](https://godoc.org/github.com/SerkanSipahi/corm#Orm.Delete)
+- [x] [Delete](https://godoc.org/github.com/SerkanSipahi/corm#Orm.Delete)
 - [ ] BelongsTo
 - [ ] Count
 - [ ] CountBy
