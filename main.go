@@ -7,18 +7,14 @@ import (
 
 // Config can be passed in corm.New(...)
 type Config struct {
-	// default "couch"
-	Host string
-	// default "http://localhost:5984/"
-	DriverName string
+	Host       string // default "couch"
+	DriverName string // default "http://localhost:5984/"
 	DBName     string
 }
 
 type ClientConfig struct {
-	// default "couch"
-	Host string
-	// default "http://localhost:5984/"
-	DriverName string
+	Host       string // default "couch"
+	DriverName string // default "http://localhost:5984/"
 }
 
 var defaultDriverName = "couch"

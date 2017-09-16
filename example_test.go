@@ -11,6 +11,12 @@ import (
 // orm, please follow the example step by step.
 func ExampleNewOrm_orm() {
 
+	// type Product struct {
+	// 	Id          string `json:"_id,omitempty"`  // required in this style
+	// 	Rev         string `json:"_rev,omitempty"` // required in this style
+	// 	Name        string `json:"vendorId"`
+	// }
+
 	// create client
 	client, err := corm.NewClient(context.TODO(), corm.ClientConfig{
 		Host:       "http://localhost:5984/",
@@ -79,6 +85,12 @@ func ExampleNewClient() {
 // Save a document with "auto generated" id by couchDB
 func ExampleOrm_Save_save1() {
 
+	// type Product struct {
+	// 	Id          string `json:"_id,omitempty"`  // required in this style
+	// 	Rev         string `json:"_rev,omitempty"` // required in this style
+	// 	Name        string `json:"vendorId"`
+	// }
+
 	// create orm
 	orm, err := corm.New(context.TODO(), corm.Config{
 		DBName: "mydbname",
@@ -105,6 +117,12 @@ func ExampleOrm_Save_save1() {
 // Save a document with "predefined" id
 func ExampleOrm_Save_save2() {
 
+	// type Product struct {
+	// 	Id          string `json:"_id,omitempty"`  // required in this style
+	// 	Rev         string `json:"_rev,omitempty"` // required in this style
+	// 	Name        string `json:"vendorId"`
+	// }
+
 	// create orm
 	orm, err := corm.New(context.TODO(), corm.Config{
 		DBName: "mydbname",
@@ -127,6 +145,12 @@ func ExampleOrm_Save_save2() {
 
 // Update an document by given Id and Rev
 func ExampleOrm_Update() {
+
+	// type Product struct {
+	// 	Id          string `json:"_id,omitempty"`  // required in this style
+	// 	Rev         string `json:"_rev,omitempty"` // required in this style
+	// 	Name        string `json:"vendorId"`
+	// }
 
 	// create orm
 	orm, err := corm.New(context.TODO(), corm.Config{
@@ -156,6 +180,12 @@ func ExampleOrm_Update() {
 
 // Read document
 func ExampleOrm_Read() {
+
+	// type Product struct {
+	// 	Id          string `json:"_id,omitempty"`  // required in this style
+	// 	Rev         string `json:"_rev,omitempty"` // required in this style
+	// 	Name        string `json:"vendorId"`
+	// }
 
 	// create orm
 	orm, err := corm.New(context.TODO(), corm.Config{
