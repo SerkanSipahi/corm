@@ -28,8 +28,8 @@ func ExampleNewOrm_orm() {
 
 	// create db
 	db, err := client.DB(context.TODO(), config.DBName)
-	// create orm model
-	model := corm.NewOrm(db)
+	// create orm
+	orm := corm.NewOrm(db)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -42,7 +42,7 @@ func ExampleNewOrm_orm() {
 	}
 
 	// save person
-	id, rev, err := model.Save(context.TODO(), Person{
+	id, rev, err := orm.Save(context.TODO(), Person{
 		Name:     "Serkan",
 		Surename: "Sipahi",
 	})
@@ -51,12 +51,10 @@ func ExampleNewOrm_orm() {
 	// Output: 889c9653a6b490cc24c85d78b10076c7, 1-68a533f5dc76a65b56b7329b9d4086ab, nil
 }
 
-// NewClient creates a new client instance that is very useful when you want to use the
-// client api of kivik.Client see https://godoc.org/github.com/flimzy/kivik#Client .
 // Here is an example for Authentication an user
 func ExampleNewClient() {
 
-	// create client instance
+	// create client
 	client, err := corm.NewClient(context.TODO(), corm.ClientConfig{
 		Host:       "http://localhost:5984/",
 		DriverName: "couch",
@@ -83,7 +81,8 @@ func ExampleNewClient() {
 // save a document with "auto generated" id by couchDB
 func ExampleOrm_Save_save1() {
 
-	db, err := corm.New(context.TODO(), corm.Config{
+	// create orm
+	orm, err := corm.New(context.TODO(), corm.Config{
 		DBName: "mydbname",
 	})
 
@@ -91,7 +90,8 @@ func ExampleOrm_Save_save1() {
 		log.Fatal(err)
 	}
 
-	docId, rev, err := db.Save(context.TODO(), Product{
+	// save document
+	docId, rev, err := orm.Save(context.TODO(), Product{
 		Name: "Foo",
 	})
 
@@ -105,12 +105,13 @@ func ExampleOrm_Save_save1() {
 // save a document with "predefined" id
 func ExampleOrm_Save_save2() {
 
-	db, err := corm.New(context.TODO(), corm.Config{
+	// create orm
+	orm, err := corm.New(context.TODO(), corm.Config{
 		DBName: "mydbname",
 	})
 
 	// create document with predefined id
-	docId, rev, err := db.Save(context.TODO(), Product{
+	docId, rev, err := orm.Save(context.TODO(), Product{
 		Id:   "123456",
 		Name: "Foo",
 	})
