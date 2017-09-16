@@ -80,7 +80,7 @@ func ExampleNewClient() {
 
 }
 
-func ExampleOrm_Save_save1() {
+func ExampleOrm_Save_save_with_auto_id() {
 
 	db, err := corm.New(context.TODO(), corm.Config{
 		DBName: "mydbname",
