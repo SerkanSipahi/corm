@@ -39,7 +39,7 @@ db, err := corm.New(ctx, corm.Config{
 - [x] Delete
 - [ ] DeleteMany
 - [ ] ExecuteQuery
-- [x] Update
+- [x] [Update](https://godoc.org/github.com/SerkanSipahi/corm#Orm.Update)
 - [ ] UpdateAll
 - [ ] Exists
 - [ ] Find

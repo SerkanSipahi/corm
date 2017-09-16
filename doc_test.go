@@ -114,6 +114,27 @@ func ExampleOrm_Save_save2() {
 		log.Fatal(err)
 	}
 
-	fmt.Println(docId, rev)
+	fmt.Println(docId, rev, err)
 	// Output: 123456, 1-68a533f5dc76a65b56b7329b9d4086ab, nil
+}
+
+// update an document by given Id and Rev
+func ExampleOrm_Update() {
+
+	// create orm
+	orm, err := corm.New(context.TODO(), corm.Config{
+		DBName: "mydbname",
+	})
+
+	rev, err := orm.Update(context.TODO(), Product{
+		Id:   "889c9653a6b490cc24c85d78b10076c7",
+		Rev:  "1-68a533f5dc76a65b56b7329b9d4086ab",
+		Name: "Bar",
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(rev, err)
+	// Output: 2-68a533f5dc76a65b56b7329b9d4086ab, nil
 }
