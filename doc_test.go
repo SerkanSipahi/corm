@@ -9,7 +9,7 @@ import (
 
 // You dont need this step when using corm. But if want to know how to init an custom
 // orm, please follow the example step by step.
-func ExampleNewOrm_orm_create_orm_instance() {
+func ExampleNewOrm_orm_createOrmInstance() {
 
 	// build config
 	config := corm.Config{
