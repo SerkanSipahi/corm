@@ -133,6 +133,11 @@ func ExampleOrm_Update() {
 		DBName: "mydbname",
 	})
 
+	// log when it fails
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	// update document
 	rev, err := orm.Update(context.TODO(), Product{
 		Id:   "889c9653a6b490cc24c85d78b10076c7",
@@ -147,4 +152,55 @@ func ExampleOrm_Update() {
 
 	fmt.Println(rev, err)
 	// Output: 2-68a533f5dc76a65b56b7329b9d4086ab, nil
+}
+
+// Read document
+func ExampleOrm_Read() {
+
+	// create orm
+	orm, err := corm.New(context.TODO(), corm.Config{
+		DBName: "mydbname",
+	})
+
+	// log when it fails
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var product Product
+	_, err = orm.Read(context.TODO(), "889c9653a6b490cc24c85d78b10076c7", &product)
+
+	fmt.Println(product)
+	// Output: Product{Name: "Bar", Id: "889c9653a6b490cc24c85d78b10076c7", Rev: "2-68a533f5dc76a65b56b7329b9d4086ab"}
+}
+
+// Read document with options
+func ExampleOrm_Read2() {
+
+	// example coming soon
+}
+
+// Delete document
+func ExampleOrm_Delete() {
+
+	// create orm
+	orm, err := corm.New(context.TODO(), corm.Config{
+		DBName: "mydbname",
+	})
+
+	// log when it fails
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// delete doc
+	_, err = orm.Delete(context.TODO(),
+		"889c9653a6b490cc24c85d78b10076c7",
+		"2-68a533f5dc76a65b56b7329b9d4086ab",
+	)
+
+	// log when it fails
+	if err != nil {
+		log.Fatal(err)
+	}
 }
