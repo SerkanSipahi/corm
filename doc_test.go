@@ -102,7 +102,7 @@ func ExampleOrm_Save_save1() {
 	// Output: 889c9653a6b490cc24c85d78b10076c7, 1-68a533f5dc76a65b56b7329b9d4086ab, nil
 }
 
-// save a document with "predefined" id by couchDB
+// save a document with "predefined" id
 func ExampleOrm_Save_save2() {
 
 	db, err := corm.New(context.TODO(), corm.Config{
