@@ -8,7 +8,7 @@ import (
 )
 
 // How to init an custom orm explained step by step
-func ExampleNewOrm_NewOrm() {
+func ExampleNewOrm() {
 
 	// build config
 	config := corm.Config{
