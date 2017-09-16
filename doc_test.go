@@ -53,15 +53,19 @@ func ExampleNewClient() {
 		Host:       "http://localhost:5984/",
 		DriverName: "couch",
 	})
+
+	// log when it fails
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	// define credentials
 	type Credentials struct {
 		Name     string `json:"name"`
 		Password string `json:"password"`
 	}
 
+	// authenticate user
 	err = client.Authenticate(context.TODO(), Credentials{
 		Name:     "myname",
 		Password: "somepassword",
@@ -89,9 +93,11 @@ func ExampleOrm_Save_save1() {
 		Name: "Foo",
 	})
 
+	// log when it fails
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	fmt.Println(docId, rev, nil)
 	// Output: 889c9653a6b490cc24c85d78b10076c7, 1-68a533f5dc76a65b56b7329b9d4086ab, nil
 }
@@ -110,6 +116,7 @@ func ExampleOrm_Save_save2() {
 		Name: "Foo",
 	})
 
+	// log when it fails
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -126,11 +133,14 @@ func ExampleOrm_Update() {
 		DBName: "mydbname",
 	})
 
+	// update document
 	rev, err := orm.Update(context.TODO(), Product{
 		Id:   "889c9653a6b490cc24c85d78b10076c7",
 		Rev:  "1-68a533f5dc76a65b56b7329b9d4086ab",
 		Name: "Bar",
 	})
+
+	// log when it fails
 	if err != nil {
 		log.Fatal(err)
 	}
