@@ -13,7 +13,7 @@ The awesome CouchDB ORM library for Golang, aims to be developer friendly.
 
 ## Requirements
 
-* GouchDB >= 2.1
+* CouchDB >= 2.1
 * Golang >= 1.9
 
 ## Installation
