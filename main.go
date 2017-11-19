@@ -39,7 +39,7 @@ func New(ctx context.Context, config Config) (*Orm, error) {
 
 	db, err := client.DB(ctx, config.DBName)
 	if err != nil {
-		return &Orm{Db: db}, err
+		return nil, err
 	}
 
 	return NewOrm(db), err
@@ -52,7 +52,7 @@ func NewClient(ctx context.Context, config ClientConfig) (*Client, error) {
 
 	client, err := kivik.New(ctx, config.DriverName, config.Host)
 	if err != nil {
-		return &Client{}, err
+		return nil, err
 	}
 
 	return client, err
