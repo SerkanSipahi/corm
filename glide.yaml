@@ -1,0 +1,8 @@
+package: github.com/SerkanSipahi/corm
+import:
+- package: github.com/flimzy/kivik
+  version: ^1.7.3
+- package: github.com/go-kivik/couchdb
+  version: ^1.7.2
+- package: github.com/fatih/structs
+  version: ebf56d35bba727c68ac77f56f2fcf90b181851aa
